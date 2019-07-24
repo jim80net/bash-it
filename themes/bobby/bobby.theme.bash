@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-
 SCM_THEME_PROMPT_DIRTY=" ${red}✗"
 SCM_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-SCM_THEME_PROMPT_PREFIX=" ${green}|"
+SCM_THEME_PROMPT_PREFIX=" |"
 SCM_THEME_PROMPT_SUFFIX="${green}|"
 
 GIT_THEME_PROMPT_DIRTY=" ${red}✗"
@@ -20,6 +19,7 @@ __bobby_clock() {
     printf "$(clock_char) "
   fi
 }
+# This Pivotal's customization of the bobby theme
 
 function prompt_command() {
     PS1="\n$(battery_char) $(__bobby_clock)"
@@ -36,4 +36,5 @@ THEME_CLOCK_CHAR_COLOR=${THEME_CLOCK_CHAR_COLOR:-"$red"}
 THEME_CLOCK_COLOR=${THEME_CLOCK_COLOR:-"$bold_cyan"}
 THEME_CLOCK_FORMAT=${THEME_CLOCK_FORMAT:-"%Y-%m-%d %H:%M:%S"}
 
-safe_append_prompt_command prompt_command
+
+PROMPT_COMMAND=prompt_command;
