@@ -1,0 +1,11 @@
+function utc_clock_prompt {
+  CLOCK_COLOR=${THEME_CLOCK_COLOR:-"$normal"}
+  CLOCK_FORMAT=${THEME_CLOCK_FORMAT:-"%H:%M:%S"}
+  [ -z $THEME_SHOW_CLOCK ] && THEME_SHOW_CLOCK=${THEME_CLOCK_CHECK:-"true"}
+  SHOW_CLOCK=$THEME_SHOW_CLOCK
+
+  if [[ "${SHOW_CLOCK}" = "true" ]]; then
+    CLOCK_STRING=$(date -u +"${CLOCK_FORMAT}")
+    echo -e "${CLOCK_COLOR}${CLOCK_THEME_PROMPT_PREFIX}${CLOCK_STRING}${CLOCK_THEME_PROMPT_SUFFIX}"
+  fi
+}
