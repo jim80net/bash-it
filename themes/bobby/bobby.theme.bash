@@ -22,7 +22,6 @@ __bobby_clock() {
 # This Pivotal's customization of the bobby theme
 
 function prompt_command() {
-    reset_title
     PS1="\n$(battery_char) $(__bobby_clock)"
     PS1+="${yellow}$(ruby_version_prompt) "
     PS1+="${purple}\h "
